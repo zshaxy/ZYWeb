@@ -6,7 +6,7 @@
 //接口前缀
 //var uri = window.localStorage['uri'];
 //var uri='http://vip.zfpt3.com/api/';
-var uri='http://127.0.0.1:80/api/';
+var uri='http://192.168.1.19:80/api/';
 //sign值
 var sign = '89f3s0NewRarqoqACmCGjAEOh';
 //token

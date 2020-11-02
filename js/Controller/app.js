@@ -14,9 +14,7 @@ function plusReady(){
 		var wgtVer=null;
 		wgtVer=inf.version;
 		console.log("当前应用版本："+wgtVer);
-		// checkUpdate(wgtVer)
 		openWV('View/Login/login.html','login','bottom','')
-    	plus.nativeUI.closeWaiting()
 	});
 }
 

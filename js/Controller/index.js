@@ -55,15 +55,15 @@ function getPage() {
     var subpages = ['../Home/home.html', '../Game/gameList.html', '../Record/record.html', '../User/user.html'];
 	var activeTab = subpages[Index],
 		title = document.querySelector(".mui-title");
-//		setTimeout(plus.webview.currentWebview().append(plus.webview.create(
-//			subpages[0],
-//			subpages[0],{
-//				top: '45px',
-//				bottom: '50px'
-//			}
-//			
-//		)),1000);
-//		plus.nativeUI.closeWaiting();
+		setTimeout(plus.webview.currentWebview().append(plus.webview.create(
+			subpages[0],
+			subpages[0],{
+				top: '45px',
+				bottom: '50px'
+			}
+			
+		)),1000);
+		plus.nativeUI.closeWaiting();
 
 	setTimeout(function() {
 		var self = plus.webview.currentWebview();
@@ -85,14 +85,14 @@ function getPage() {
 	},3000);
 	var activeTab = subpages[Index],
 		title = document.querySelector(".mui-title");
-//	setTimeout(function(){
-//		var allview = plus.webview.all();
-//		if(allview){
-//			for(var i=0,len=allview.length;i<len;i++){
-//			    	console.log(allview[i].getURL());
-//		        }
-//		}
-//	},3000),
+	setTimeout(function(){
+		var allview = plus.webview.all();
+		if(allview){
+			for(var i=0,len=allview.length;i<len;i++){
+			    	console.log(allview[i].getURL());
+		        }
+		}
+	},3000),
 
 	mui('.mui-bar-tab').on('tap', 'a', function(e) {
 		var targetTab = this.getAttribute('href');

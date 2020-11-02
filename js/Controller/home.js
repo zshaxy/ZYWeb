@@ -31,19 +31,7 @@ var bannerImg = new Swiper ('#bannerImg', {
     });
    
 function plusReady(){
-//    window.localStorage['customLot'] = ''
-	
-	//未定义
-	getNotice()
-	getUserInfo()
-	console.log('111111')
-//  console.log(JSON.stringify(customLot)+'111')
-    if(customLot){
-    	createLot(customLot)
-    }else{
-    	getLotList()
-    }
-   
+	getUserInfo();
 };
 
 window.addEventListener('refreshLotList',function(event){
@@ -52,7 +40,6 @@ window.addEventListener('refreshLotList',function(event){
 
 window.addEventListener('refreshUserInfo',function(event){
 	getUserInfo()
-//	getLotResult()
 });
 mui('.dowebok').on('tap','.str_origin a',function(){
 	var title=$(this).attr('data-title');
@@ -93,17 +80,18 @@ mui('#lot-enter').on('tap', 'li', function(e) {
 });
 //获取用户相关信息
 function getUserInfo(){
-	//plus.nativeUI.showWaiting()
-	mui.ajax(uri+'Account/GetUserInfo',{
+	
+	plus.nativeUI.showWaiting()
+	mui.ajax(uri+'user/getUserInfo',{
         dataType:'json',
-        data: {'user_id':user_id,'token':token,'sign':sign},
+        data: {'id':user_id,'token':token,'sign':sign},
         type:'post',
         success:function(data){
             if(data.code == 1){
             	window.localStorage['flevel_fd'] = data.flevel_fd
             	window.localStorage['balance'] = data.balance
             }else{
-//          	toast('请求失败')
+				toast('请求失败')
             }
         },
         error:function(xhr,type,errorThrown){
