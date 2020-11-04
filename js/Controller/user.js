@@ -17,7 +17,6 @@ window.addEventListener('accountDataInfo',function(event){
 })
 
 window.addEventListener('reportDataInfo',function(event){
-	console.log('hh')
 	getUserInfo()
 })
 
@@ -30,11 +29,10 @@ mui('#userBar').on('tap', 'li a', function(e) {
 
 function getUserInfo(){
 	plus.nativeUI.showWaiting()
-	mui.ajax(uri+'Account/GetUserInfo',{
+	mui.ajax(uri+'user/getUserInfo',{
         dataType:'json',
-        data: {'user_id':user_id,'token':token,'sign':sign},
+        data: {'id':user_id,'token':token,'sign':sign},
         type:'post',
-        
         success:function(data){
         	if(data.code == 202){
             	plus.runtime.restart()
@@ -42,12 +40,9 @@ function getUserInfo(){
             plus.nativeUI.closeWaiting()
             if(data.code == 1){
             	console.log(JSON.stringify(data))
-            	window.localStorage['flevel_fd'] = data.flevel_fd
-            	window.localStorage['balance'] = data.balance;
-            	window.localStorage['banker_balance'] = data.banker_balance;
-            	document.getElementById("bouns").innerHTML = data.balance
+            	window.localStorage['balance'] = data.data.userInfo.balance;
+            	document.getElementById("bouns").innerHTML = data.data.userInfo.balance
             	document.getElementById("username").innerHTML = username
-            	document.getElementById("mo").innerHTML = data.banker_balance
             }else{
             	toast('请求失败')
             }

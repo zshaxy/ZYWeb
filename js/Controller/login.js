@@ -19,10 +19,6 @@ function plusReady() {
 	if(username){
 		document.getElementById("username").value = username
 	}
-	
-	if(window.localStorage['password']){
-		document.getElementById("password").value = window.localStorage['password']
-	}
 }
 
 mui('#login').on('tap', '#login-btn', function(e) {
@@ -37,6 +33,7 @@ mui('#login').on('tap', '#login-btn', function(e) {
 		/*
 		 *等待 
 		  */
+		 console.log(uri+'user/login')
 	    mui.ajax(uri+'user/login',{
             dataType:'json',
             data: {'username':username,'password':password,'sign':sign},

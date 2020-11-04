@@ -126,8 +126,8 @@ function plusReady(){
 	var lottery=$('#record-menu-top a.mui-active').attr('id');	
 	var cur_type = $('#record-menu a.mui-active').attr('id');
     var cur_date = $('#date-menu a.mui-active').attr('id');
-    console.log(lottery)
-    getInfo(lottery,cur_type,cur_date,'') 
+    // console.log(lottery)
+    // getInfo(lottery,cur_type,cur_date,'') 
 }
 
 function getInfo(lottery,cur_type,cur_date,sta) {
@@ -246,6 +246,7 @@ function getInfo(lottery,cur_type,cur_date,sta) {
 }
 
 function getBetRecord(url,s,e){
+	console.log("getBetRecord")
 	if($('#pullmore').size()>0){
 		init = 1
 	}
